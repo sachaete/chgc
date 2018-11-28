@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Gioco</title>
+  <h1 id="titolo" class="title">Se Schiacci il bottone diventi milionario</h1>
+  <button id="clicca" class="premi"><strong>Non Mi prendi</strong></button>
+  <h2 id="banner"><em>HAI POCO TEMPO</em></h2>
+  
+  
+<style>
+#clicca {
+position: absolute;
+top: 80px;
+left: 20px;
+}
+#titolo {
+background: yellow;
+}
+#banner {
+position: absolute;
+}
+</style>  
+<head>
+  <body>
+   <br><br><div id="vinto"></div>
+   <br><br> <span id="countdown">20</span> 
+   
+<script>   
+var bottone = document.getElementById("clicca");
+var onButtonClick = function(e) {
+console.log(e)
+	document.getElementById("vinto").textContent = "BRAVO, DIVENTERAI RICCO!!!";
+  }
+bottone.addEventListener("click", onButtonClick);
+var onMouseOver = function() {
+bottone.style.background = "green";
+var firstTop = Math.floor(Math.random() * 500);
+var firstLeft = Math.floor(Math.random() * 500);
+bottone.style.postion = "absolute";
+bottone.style.top = firstTop + "px";
+bottone.style.left = firstLeft + "px";
+}
+bottone.addEventListener("mouseover", onMouseOver);
+ var countdown = document.getElementById("countdown");
+ var countItDown = function() {
+    var tempoRestante = parseFloat(countdown.textContent);
+    if (tempoRestante > 0) {
+       countdown.textContent = tempoRestante - 1;   
+    } else {
+        window.clearInterval(countdown);
+        countdown.textContent = "HAI PERSO SEI SCARSO";
+        bottone.disabled = true;
+    }
+     };
+  
+ var timer = window.setInterval(countItDown, 1000);
+   
+   
+   
+   var banner = document.getElementById("banner");
+   var newLeft = 10
+   banner.style.background = "red";
+   banner.style.position = "absolute";
+     banner.style.left = newLeft + "px";
+     var scivola = function () {
+     var punto = parseFloat(banner.style.left);
+     if (tempoRestante > 0) {
+     banner.style.left = punto+1+"px";
+     } else {
+     window.clearInterval(banner);
+     banner.style.left = punto-1+"px";
+     }
+   };
+ 
+ var movimento = window.setInteval(scivola, 1000/30);
+ 
+</script>
+  </body>
+<html>
