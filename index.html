@@ -3,8 +3,8 @@
 <head>
   <title>Gioco</title>
   <h1 id="titolo" class="title">Se Schiacci il bottone diventi milionario</h1>
-  <button id="clicca" class="premi"><strong>Non Mi prendi</strong></button>
-  <h2 id="banner"><em>HAI POCO TEMPO</em></h2>
+  <button id="clicca" class="premi"><strong>Non Mi prendi</strong></button><br><br>
+  <MARQUEE width="100%" scrollamount="20"><font size="40" color="red">HAI POCO TEMPO</font>
   
   
 <style>
@@ -16,9 +16,7 @@ left: 20px;
 #titolo {
 background: yellow;
 }
-#banner {
-position: absolute;
-}
+
 </style>  
 <head>
   <body>
@@ -57,22 +55,7 @@ bottone.addEventListener("mouseover", onMouseOver);
    
    
    
-   var banner = document.getElementById("banner");
-   var newLeft = 10
-   banner.style.background = "red";
-   banner.style.position = "absolute";
-     banner.style.left = newLeft + "px";
-     var scivola = function () {
-     var punto = parseFloat(banner.style.left);
-     if (tempoRestante > 0) {
-     banner.style.left = punto+1+"px";
-     } else {
-     window.clearInterval(banner);
-     banner.style.left = punto-1+"px";
-     }
-   };
- 
- var movimento = window.setInteval(scivola, 1000/30);
+  
  
 </script>
   </body>
